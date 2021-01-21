@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Box, jsx } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import { createContext, useEffect, useState, useContext, Fragment } from 'react';
 import { navigate } from 'gatsby';
 

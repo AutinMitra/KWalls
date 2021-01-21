@@ -155,6 +155,9 @@ const ProcessPage = ({data}) => {
                     value={k}
                     label={'K'}
                     onChange={(e) => setK(e.target.value)}
+                    sx={{
+                      width: '100%'
+                    }}
                   />
                   <InputWithLabel 
                     name='maxIters'
@@ -163,6 +166,7 @@ const ProcessPage = ({data}) => {
                     label='Number of Iters'
                     onChange={(e) => setMaxIters(e.target.value)}
                     sx={{
+                      width: '100%',
                       ml: 3
                     }}
                   />

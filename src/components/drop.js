@@ -1,14 +1,14 @@
 /** @jsx jsx */
-import { Box, Button, Flex, Heading, jsx } from 'theme-ui'
-import {useCallback, useState} from 'react'
-import {useDropzone} from 'react-dropzone'
+import { Box, Button, Heading, jsx } from 'theme-ui'
+import { useCallback } from 'react'
+import { useDropzone } from 'react-dropzone'
 
 const FileDrop = ({onImageUploaded = () => {}, ...props}) => {
   const onDrop = useCallback(files => {
     const file = files[0]
 
     // TODO: ERROR MESSAGE
-    const validImageTypes = ['image/gif', 'image/jpeg', 'image/png'];    
+    const validImageTypes = ['image/jpeg', 'image/png'];    
     if (!validImageTypes.includes(file.type)) {
       console.log("NOT AN IMAGE")
       return
@@ -24,7 +24,7 @@ const FileDrop = ({onImageUploaded = () => {}, ...props}) => {
     }
 
     reader.readAsDataURL(file)
-  }, [])
+  }, [onImageUploaded])
 
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
@@ -40,7 +40,11 @@ const FileDrop = ({onImageUploaded = () => {}, ...props}) => {
       {...props}
       {...getRootProps()}
     >
-      <input multiple={false} type="file" {...getInputProps()} />
+      <input 
+        {...getInputProps()} 
+        accept="image/*"
+        multiple={false} 
+      />
       <Box
         sx={{
           m: 'auto',

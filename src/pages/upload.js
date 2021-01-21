@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Box, Button, Flex, Heading, jsx } from 'theme-ui'
+import { Button, Flex, Heading, jsx } from 'theme-ui'
 import { Fragment, useCallback, useState } from 'react'
 import { motion } from 'framer-motion'
 import { fadeUp, stagger } from '../animation/animation'
@@ -16,7 +16,7 @@ const UploadPage = ({data}) => {
     setDataAsUrl(url)
   }, [])
 
-  const {updateBaseImage} = useImageInfo()
+  const {updateBaseImage, updateKWallImage} = useImageInfo()
 
   return (
     <Fragment>
@@ -82,7 +82,8 @@ const UploadPage = ({data}) => {
               }}
               onClick={() => {
                 updateBaseImage(dataAsUrl)
-                navigate('/process')
+                updateKWallImage(null)
+                navigate('/process', {replace: true})
               }}
             >
               Continue

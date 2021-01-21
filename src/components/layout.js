@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { AnimatePresence, motion } from 'framer-motion'
 import { Flex, Styled, jsx } from 'theme-ui'
+import { AnimatePresence, motion } from 'framer-motion'
 import { ImageProvider } from '../context/image'
 
 const Layout = ({location, children, ...props}) => {
